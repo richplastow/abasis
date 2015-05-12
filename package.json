@@ -1,0 +1,34 @@
+{
+  "name": "abasis",
+  "version": "0.0.1",
+  "license": "MIT",
+  "homepage": "http://abasis.richplastow.com/",
+  "author": "Rich Plastow <rich@richplastow.com> (http://richplastow.com/)",
+  "description": "A solid base class, ready to extend",
+  "main": "./build/abasis.js",
+  "bin":{
+    "apage": "./bin/apage",
+    "akaybe-build": "./bin/akaybe-build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/richplastow/abasis.git"
+  },
+  "keywords": [
+    "base",
+    "class",
+    "coffeescript",
+    "litcoffee"
+  ],
+  "devDependencies": {
+    "coffee-script": "latest",
+    "nodemon": "latest"
+  },
+  "scripts": {
+    "build": "node bin/akaybe-build --plugin",
+    "test": "node test/run-test.js",
+    "index": "./bin/apage -i README.md doc/*.md -o index.html -t Abasis",
+    "v:list": "grep -ron $npm_package_version {bin,src,*.json} | awk 1 ORS=' ' | sed \"s@:$npm_package_version@@g\"",
+    "v:open": "subl $(npm run v:list --loglevel silent)"
+  }
+}
